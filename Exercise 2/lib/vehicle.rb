@@ -1,4 +1,6 @@
 class Vehicle
+  DEFAULT_MOVE_DISTANCE = 0
+
   attr_reader :driver, :distance
 
   def initialize(driver)
@@ -7,7 +9,7 @@ class Vehicle
   end
 
   def change_distance
-    @distance += default_move_distance
+    @distance += self.class::DEFAULT_MOVE_DISTANCE
   end
 
   class << self
@@ -19,19 +21,13 @@ end
 
 
 class Bicycle < Vehicle
-  def default_move_distance
-    2
-  end
+  DEFAULT_MOVE_DISTANCE = 2
 end
 
 class Motorbike < Vehicle
-  def default_move_distance
-    4
-  end
+  DEFAULT_MOVE_DISTANCE = 4
 end
 
 class Car < Vehicle
-  def default_move_distance
-    6
-  end
+  DEFAULT_MOVE_DISTANCE = 6
 end
