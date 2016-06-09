@@ -4,7 +4,6 @@ class Vehicle
   def initialize(driver)
     @driver = driver
     @distance = 0
-    @default_move_distance = 0
   end
 
   def change_distance
