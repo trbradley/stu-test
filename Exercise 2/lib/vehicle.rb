@@ -1,12 +1,12 @@
-class Vehicule
-  def self.move(vehicule)
-    case vehicule
+class Vehicle
+  def self.move(vehicle)
+    case vehicle
     when Bicycle
-      vehicule.move_bicycle
+      vehicle.move_bicycle
     when Motorbike
-      vehicule.move_motorbike
+      vehicle.move_motorbike
     when Car
-      vehicule.move_car
+      vehicle.move_car
     end
   end
 end

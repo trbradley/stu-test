@@ -1,25 +1,27 @@
-Spec.describe(Vehicule) do
+require 'vehicle'
+
+describe Vehicle do
   describe ".move" do
     let(:driver) { "John Doe" }
 
-    subject { -> { Vehicule.move(vehicule) } }
+    subject { -> { Vehicle.move(vehicle) } }
 
-    context "when vehicule is a bicycle" do
-      let(:vehicule) { Bicycle.new(driver) }
+    context "when vehicle is a bicycle" do
+      let(:vehicle) { Bicycle.new(driver) }
 
-      it { is_expected.to change(vehicule, :distance).by(2) }
+      it { is_expected.to change(vehicle, :distance).by(2) }
     end
 
-    context "when vehicule is a motorbike" do
-      let(:vehicule) { Motorbike.new(driver) }
+    context "when vehicle is a motorbike" do
+      let(:vehicle) { Motorbike.new(driver) }
 
-      it { is_expected.to change(vehicule, :distance).by(4) }
+      it { is_expected.to change(vehicle, :distance).by(4) }
     end
 
-    context "when vehicule is a car" do
-      let(:vehicule) { Car.new(driver) }
+    context "when vehicle is a car" do
+      let(:vehicle) { Car.new(driver) }
 
-      it { is_expected.to change(vehicule, :distance).by(6) }
+      it { is_expected.to change(vehicle, :distance).by(6) }
     end
   end
 end
