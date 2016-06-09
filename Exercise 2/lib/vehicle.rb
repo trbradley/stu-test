@@ -1,52 +1,38 @@
 class Vehicle
-  def self.move(vehicle)
-    case vehicle
-    when Bicycle
-      vehicle.move_bicycle
-    when Motorbike
-      vehicle.move_motorbike
-    when Car
-      vehicle.move_car
+  attr_reader :driver, :distance
+
+  def initialize(driver)
+    @driver = driver
+    @distance = 0
+    @default_move_distance = 0
+  end
+
+  def change_distance
+    @distance += default_move_distance
+  end
+
+  class << self
+    def move(vehicle)
+      vehicle.change_distance
     end
   end
 end
 
 
-class Bicycle
-  attr_reader :driver, :distance
-
-  def initialize(driver)
-    @driver = driver
-    @distance = 0
-  end
-
-  def move_bicycle
-    @distance = @distance + 2
+class Bicycle < Vehicle
+  def default_move_distance
+    2
   end
 end
 
-class Motorbike
-  attr_reader :driver, :distance
-
-  def initialize(driver)
-    @driver = driver
-    @distance = 0
-  end
-
-  def move_motorbike
-    @distance = @distance + 4
+class Motorbike < Vehicle
+  def default_move_distance
+    4
   end
 end
 
-class Car
-  attr_reader :driver, :distance
-
-  def initialize(driver)
-    @driver = driver
-    @distance = 0
-  end
-
-  def move_car
-    @distance = @distance + 6
+class Car < Vehicle
+  def default_move_distance
+    6
   end
 end
